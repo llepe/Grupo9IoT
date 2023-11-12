@@ -1,2 +1,5 @@
 print ("Luis Manuel Lepe")
 print("leonardo")
+print("Jennifer")
+print ("Santoyo")
+print("Sofia, otra vez")
