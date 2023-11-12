@@ -1,4 +1,6 @@
 print ("Luis Manuel Lepe")
-
-print ("Osmar")
+print("Jennifer")
 print ("Santoyo")
+print("Sofia, otra vez")
+print("Holaa:D. Estefania Gutierrez")
+print ("Osmar")
