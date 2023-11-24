@@ -1,17 +1,21 @@
-from tkgpio import TkCircuit
+from pathlib import Path
+is_rpi = Path("/etc/rpi-issue").exists()
 
-# initialize the circuit inside the GUI
+if not is_rpi:
+    from tkgpio import TkCircuit
 
-configuration = {
-    "width": 300,
-    "height": 200,
-    "leds": [
-        {"x": 50, "y": 40, "name": "LED 1", "pin": 14},
-    ],
-}
+    # initialize the circuit inside the GUI
 
-circuit = TkCircuit(configuration)
-@circuit.run
+    configuration = {
+        "width": 300,
+        "height": 200,
+        "leds": [
+            {"x": 50, "y": 40, "name": "LED 1", "pin": 14},
+        ],
+    }
+
+    circuit = TkCircuit(configuration)
+#@circuit.run
 def main ():
     
     # now just write the code you would use on a real Raspberry Pi
@@ -39,3 +43,8 @@ def main ():
             break;
         else:
             print ("Orden invalida\n\r")
+
+if is_rpi:
+    main()
+else:
+    circuit.run(main)
