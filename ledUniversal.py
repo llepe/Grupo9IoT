@@ -11,6 +11,8 @@ if not is_rpi:
         "height": 200,
         "leds": [
             {"x": 50, "y": 40, "name": "LED 1", "pin": 14},
+            {"x": 100, "y": 40, "name": "LED 1", "pin": 15},
+            {"x": 150, "y": 40, "name": "LED 1", "pin": 16},
         ],
     }
 
@@ -23,26 +25,18 @@ def main ():
     from gpiozero import LED, Button
     from time import sleep
     
-    led = LED(14)
-    
-    while True:
-        orden = input("Que quieres que haga?\n\r")
+    leds = {
+        "led1": LED(14),
+        "led2": LED(15),
+        "led3": LED(16)
+    }
 
-        if (orden == "prendete"):
-            led.on()
-            print ("Prendido\n\r")
-        elif (orden == "apagate"):
-            led.off()
-            print ("Apagado\n\r")
-        elif (orden == "parpadea"):
-            led.blink()
-            print ("Parpadeando\n\r")
-        elif (orden == "salte"):
-            led.off()
-            print ("Adios\n\r")
-            break;
-        else:
-            print ("Orden invalida\n\r")
+    for i in leds.keys():
+        leds[i].blink()
+        sleep(2)
+
+    while True:
+        sleep(1)
 
 if is_rpi:
     main()
