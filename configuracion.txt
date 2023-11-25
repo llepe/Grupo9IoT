@@ -1,0 +1,3 @@
+servidor=192.162.1.1
+baseDeDatos=BD1
+usuario=123
