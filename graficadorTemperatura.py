@@ -19,9 +19,6 @@ for linea in datos:
     humedad["x"].append(dato[0])
     humedad["y"].append(dato[2])
 
-
 plt.plot(temperatura["x"],temperatura["y"], color="r")
-
 plt.scatter(humedad["x"],humedad["y"], marker = "*")
-
 plt.show()
